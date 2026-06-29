@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Cherry fruit - two cherries -->
+  <circle cx="95" cy="155" r="40" fill="#D4483B"/>
+  <circle cx="150" cy="160" r="36" fill="#C13A2E"/>
+  <!-- Highlights -->
+  <ellipse cx="82" cy="142" rx="10" ry="7" fill="#E8655A" opacity="0.6"/>
+  <ellipse cx="139" cy="148" rx="8" ry="6" fill="#D94F43" opacity="0.5"/>
+  <!-- Stems -->
+  <path d="M95 115 Q100 70 130 50" stroke="#4A7A3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M150 124 Q145 75 130 50" stroke="#4A7A3A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- Leaf -->
+  <path d="M130 50 Q155 35 170 45 Q160 60 135 55 Z" fill="#5A9E47"/>
+  <path d="M130 50 Q152 48 165 46" stroke="#4A8A3A" stroke-width="1.5" fill="none"/>
+  <!-- Pow spark -->
+  <polygon points="185,85 192,100 208,100 195,110 200,126 185,116 170,126 175,110 162,100 178,100" fill="#C8951A" opacity="0.9"/>
+</svg>
