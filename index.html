@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avelaval Inc. — ThaiLang & ManLang</title>
+<title>Avelaval Inc. — Portfolio</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #CCCCCC; color: #1a1a1a; line-height: 1.6; }
@@ -11,25 +11,35 @@
   .nav a { color: #444; text-decoration: none; font-size: 14px; font-weight: 500; }
   .nav a:hover { color: #000; }
   .hero { text-align: center; padding: 60px 20px 40px; background: #CCCCCC; }
-  .hero h1 { font-size: 28px; font-weight: 800; color: #000; margin-bottom: 8px; }
-  .hero .tagline { color: #444; font-size: 16px; }
-  .apps { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  .hero .tagline { color: #444; font-size: 18px; margin-top: 16px; font-weight: 500; }
+  
+  /* Category Styling */
+  .category-title { text-align: center; font-size: 20px; font-weight: 700; margin: 40px 0 20px; color: #000; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .apps { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; }
   .app-card { flex: 1; min-width: 280px; max-width: 420px; background: #e0e0e0; border: 1px solid #b3b3b3; border-radius: 16px; padding: 32px 28px; }
   .app-card img { width: 80px; height: 80px; border-radius: 18px; margin-bottom: 12px; }
   .app-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 4px; color: #000; }
   .app-card .app-tagline { font-size: 14px; color: #444; margin-bottom: 16px; }
   .app-card ul { color: #333; font-size: 14px; padding-left: 18px; margin-bottom: 0; }
   .app-card li { margin-bottom: 5px; }
+  
   .thai h2 span:first-child { color: #000; }
   .thai h2 span:last-child { color: #a67a0d; }
   .man h2 span:first-child { color: #000; }
   .man h2 span:last-child { color: #b33a2f; }
+  
+  /* Productivity App Placeholder Styling */
+  .productivity-card { border-color: #b3b3b3; } 
+  .productivity-card h2 { color: #2a2e3a; }
+  
   section { max-width: 640px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; }
   section + section { border-top: 1px solid #b3b3b3; }
   h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; color: #000; }
   p { color: #333; margin-bottom: 12px; font-size: 15px; }
-  a { color: #a67a0d; }
-  footer { text-align: center; padding: 30px 20px; color: #666; font-size: 13px; }
+  a { color: #a67a0d; text-decoration: none; font-weight: 500; }
+  a:hover { text-decoration: underline; }
+  footer { text-align: center; padding: 30px 20px; color: #666; font-size: 13px; margin-top: 40px; border-top: 1px solid #b3b3b3; }
 </style>
 </head>
 <body>
@@ -41,37 +51,55 @@
 </nav>
 
 <div class="hero">
-  <img src="Avelaval1.png" alt="Avelaval Inc." style="width:160px;height:160px;margin-bottom:16px;">
-  <h1>Avelaval Inc.</h1>
+  <!-- Increased logo size, no text title -->
+  <img src="Avelaval1.png" alt="Avelaval Inc." style="width:240px;height:240px;display:block;margin:0 auto;">
   <p class="tagline">Digital Workshops and More.</p>
 </div>
 
-<div class="apps" id="apps">
-  <div class="app-card thai">
-    <img src="thailang-icon.png" alt="ThaiLang">
-    <h2><span>THAI</span><span>LANG</span></h2>
-    <p class="app-tagline">Learn Thai. No internet required.</p>
-    <ul>
-      <li>Grammar lessons with progressive difficulty</li>
-      <li>100 essential Thai phrases by category</li>
-      <li>Word bank with shuffle and random drills</li>
-      <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
-      <li>Audio pronunciation and phonetic transliterations</li>
-      <li>XP progression system</li>
-    </ul>
+<div id="apps">
+  <h2 class="category-title">Language Apps</h2>
+  <div class="apps">
+    <div class="app-card thai">
+      <img src="thailang-icon.png" alt="ThaiLang">
+      <h2><span>THAI</span><span>LANG</span></h2>
+      <p class="app-tagline">Learn Thai. No internet required.</p>
+      <ul>
+        <li>Grammar lessons with progressive difficulty</li>
+        <li>100 essential Thai phrases by category</li>
+        <li>Word bank with shuffle and random drills</li>
+        <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
+        <li>Audio pronunciation and phonetic transliterations</li>
+        <li>XP progression system</li>
+      </ul>
+    </div>
+    <div class="app-card man">
+      <img src="manlang-icon.png" alt="ManLang">
+      <h2><span>MAN</span><span>LANG</span></h2>
+      <p class="app-tagline">Learn Mandarin. No internet required.</p>
+      <ul>
+        <li>Grammar lessons with progressive difficulty</li>
+        <li>100 essential Mandarin phrases by category</li>
+        <li>Word bank with shuffle and random drills</li>
+        <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
+        <li>Audio pronunciation and phonetic transliterations</li>
+        <li>XP progression system</li>
+      </ul>
+    </div>
   </div>
-  <div class="app-card man">
-    <img src="manlang-icon.png" alt="ManLang">
-    <h2><span>MAN</span><span>LANG</span></h2>
-    <p class="app-tagline">Learn Mandarin. No internet required.</p>
-    <ul>
-      <li>Grammar lessons with progressive difficulty</li>
-      <li>100 essential Mandarin phrases by category</li>
-      <li>Word bank with shuffle and random drills</li>
-      <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
-      <li>Audio pronunciation and phonetic transliterations</li>
-      <li>XP progression system</li>
-    </ul>
+
+  <h2 class="category-title">Productivity Apps</h2>
+  <div class="apps">
+    <!-- Productivity app section ready for your customization -->
+    <div class="app-card productivity-card">
+      <img src="your-new-app-icon.png" alt="New Productivity App Icon">
+      <h2>[App Name]</h2>
+      <p class="app-tagline">Productivity tool. No account or data collection.</p>
+      <ul>
+        <li>[Feature 1]: Describe your key feature here.</li>
+        <li>[Feature 2]: Describe another key feature.</li>
+        <li>Offline First: Runs entirely on your device.</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -84,7 +112,7 @@
 <section id="privacy">
   <h3>Privacy Policy</h3>
   <p><strong>Effective date:</strong> June 24, 2026</p>
-  <p>ThaiLang and ManLang do not collect, store, or transmit any personal data. Both apps run entirely on your device with no server communication.</p>
+  <p>All Avelaval Inc. applications (ThaiLang, ManLang, and [App Name]) do not collect, store, or transmit any personal data. Both apps run entirely on your device with no server communication.</p>
   <p><strong>Data collection:</strong> None. Our apps do not collect any personal information, usage analytics, crash reports, or device identifiers.</p>
   <p><strong>Third-party services:</strong> None. Our apps do not integrate any third-party analytics, advertising, or tracking services.</p>
   <p><strong>Local storage:</strong> Your progress and settings are saved locally on your device and are never transmitted externally.</p>
@@ -93,7 +121,7 @@
   <p>Questions? Contact <a href="mailto:mnemomemory@proton.me">mnemomemory@proton.me</a></p>
 </section>
 
-<footer>&copy; 2026 Carson Evans</footer>
+<footer>&copy; 2026 Carson Evans. All apps published under Avelaval Inc.</footer>
 
 </body>
 </html>
