@@ -3,125 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avelaval Inc. — Portfolio</title>
+<title>Avelaval Inc.</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #CCCCCC; color: #1a1a1a; line-height: 1.6; }
-  .nav { display: flex; justify-content: center; gap: 24px; padding: 20px; background: #CCCCCC; border-bottom: 1px solid #b3b3b3; position: sticky; top: 0; z-index: 10; }
-  .nav a { color: #444; text-decoration: none; font-size: 14px; font-weight: 500; }
-  .nav a:hover { color: #000; }
-  .hero { text-align: center; padding: 60px 20px 40px; background: #CCCCCC; }
-  .hero .tagline { color: #444; font-size: 18px; margin-top: 16px; font-weight: 500; }
-  
-  /* Category Styling */
-  .category-title { text-align: center; font-size: 20px; font-weight: 700; margin: 40px 0 20px; color: #000; text-transform: uppercase; letter-spacing: 1px; }
-  
-  .apps { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; padding: 20px 20px 40px; }
-  .app-card { flex: 1; min-width: 280px; max-width: 420px; background: #e0e0e0; border: 1px solid #b3b3b3; border-radius: 16px; padding: 32px 28px; }
-  .app-card img { width: 80px; height: 80px; border-radius: 18px; margin-bottom: 12px; }
-  .app-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 4px; color: #000; }
-  .app-card .app-tagline { font-size: 14px; color: #444; margin-bottom: 16px; }
-  .app-card ul { color: #333; font-size: 14px; padding-left: 18px; margin-bottom: 0; }
-  .app-card li { margin-bottom: 5px; }
-  
-  .thai h2 span:first-child { color: #000; }
-  .thai h2 span:last-child { color: #a67a0d; }
-  .man h2 span:first-child { color: #000; }
-  .man h2 span:last-child { color: #b33a2f; }
-  
-  /* Productivity App Placeholder Styling */
-  .productivity-card { border-color: #b3b3b3; } 
-  .productivity-card h2 { color: #2a2e3a; }
-  
-  section { max-width: 640px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; }
-  section + section { border-top: 1px solid #b3b3b3; }
-  h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; color: #000; }
-  p { color: #333; margin-bottom: 12px; font-size: 15px; }
-  a { color: #a67a0d; text-decoration: none; font-weight: 500; }
-  a:hover { text-decoration: underline; }
-  footer { text-align: center; padding: 30px 20px; color: #666; font-size: 13px; margin-top: 40px; border-top: 1px solid #b3b3b3; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --border: #e8e4dc;
+    --text: #1a1a1a;
+    --text2: #666;
+    --text3: #999;
+    --accent: #2a2a2a;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(248,247,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+  .nav-logo span { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.2px; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 14px; color: var(--text2); text-decoration: none; font-weight: 500; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 80px 20px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-logo {
+    width: 72px; height: 72px; border-radius: 20px;
+    display: block; margin: 0 auto 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .hero h1 {
+    font-size: 36px; font-weight: 700; letter-spacing: -0.5px;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .hero p {
+    font-size: 17px; color: var(--text2); max-width: 420px; margin: 0 auto;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 960px; margin: 0 auto;
+    padding: 56px 24px;
+  }
+  .section + .section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text3);
+    margin-bottom: 28px;
+  }
+
+  /* APP GRID */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow 0.2s;
+  }
+  .app-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+  .app-card-header { display: flex; align-items: center; gap: 14px; }
+  .app-card-header img {
+    width: 56px; height: 56px; border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+  }
+  .app-card-header-text {}
+  .app-name { font-size: 19px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .app-tag {
+    display: inline-block; margin-top: 4px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 2px 8px; border-radius: 20px;
+    background: #f0ede6; color: var(--text2);
+  }
+
+  .app-desc { font-size: 14px; color: var(--text2); line-height: 1.55; }
+
+  .app-features {
+    list-style: none; display: flex; flex-direction: column; gap: 5px;
+  }
+  .app-features li {
+    font-size: 13px; color: var(--text2);
+    padding-left: 16px; position: relative;
+  }
+  .app-features li::before {
+    content: '–'; position: absolute; left: 0; color: var(--text3);
+  }
+
+  .app-store-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 4px; align-self: flex-start;
+    background: var(--text); color: #fff;
+    font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 24px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .app-store-btn:hover { opacity: 0.8; }
+  .app-store-btn.soon {
+    background: #eee; color: var(--text2); cursor: default; pointer-events: none;
+  }
+  .app-store-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* INFO SECTIONS */
+  .info-section { max-width: 640px; margin: 0 auto; padding: 56px 24px; }
+  .info-section + .info-section { border-top: 1px solid var(--border); }
+  .info-section h2 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+  .info-section p { font-size: 15px; color: var(--text2); margin-bottom: 10px; }
+  .info-section a { color: var(--text); font-weight: 500; }
+  .info-section a:hover { text-decoration: underline; }
+  .info-section strong { color: var(--text); }
+
+  footer {
+    text-align: center; padding: 32px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text3);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .hero h1 { font-size: 28px; }
+    .section { padding: 40px 16px; }
+  }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <a href="#apps">Apps</a>
-  <a href="#support">Support</a>
-  <a href="#privacy">Privacy</a>
+<nav>
+  <div class="nav-logo">
+    <img src="avelaval1.png" alt="Avelaval">
+    <span>Avelaval Inc.</span>
+  </div>
+  <div class="nav-links">
+    <a href="#apps">Apps</a>
+    <a href="#support">Support</a>
+    <a href="#privacy">Privacy</a>
+  </div>
 </nav>
 
 <div class="hero">
-  <!-- Increased logo size, no text title -->
-  <img src="avelaval1.png" alt="Avelaval Inc." style="width:240px;height:240px;display:block;margin:0 auto;">
-  <p class="tagline">Digital Workshops and More.</p>
+  <img class="hero-logo" src="avelaval1.png" alt="Avelaval Inc.">
+  <h1>Avelaval Inc.</h1>
+  <p>Simple, offline-first apps built for learners and thinkers.</p>
 </div>
 
-<div id="apps">
-  <h2 class="category-title">Language Apps</h2>
-  <div class="apps">
-    <div class="app-card thai">
-      <img src="thailang-icon.png" alt="ThaiLang">
-      <h2><span>THAI</span><span>LANG</span></h2>
-      <p class="app-tagline">Learn Thai. No internet required.</p>
-      <ul>
+<div id="apps" class="section">
+  <p class="section-label">Language Apps</p>
+  <div class="app-grid">
+
+    <div class="app-card">
+      <div class="app-card-header">
+        <img src="japanlang-icon.png" alt="JapanLang">
+        <div class="app-card-header-text">
+          <div class="app-name">JapanLang</div>
+          <span class="app-tag">iOS</span>
+        </div>
+      </div>
+      <p class="app-desc">Learn Japanese through a branching sentence builder and five progressive quiz mini-games.</p>
+      <ul class="app-features">
+        <li>GrowJPN sentence builder — build grammatically correct Japanese sentences</li>
+        <li>5 quiz games: Rice Game, Whisper, Sentence Rain, Koi Fish, Samurai Sneak</li>
+        <li>Word bank library with 200+ vocabulary entries</li>
+        <li>5 levels from hiragana basics to complex sentence structures</li>
+        <li>No internet required</li>
+      </ul>
+      <a class="app-store-btn soon" href="#">Coming Soon</a>
+    </div>
+
+    <div class="app-card">
+      <div class="app-card-header">
+        <img src="thailang-icon.png" alt="ThaiLang">
+        <div class="app-card-header-text">
+          <div class="app-name">ThaiLang</div>
+          <span class="app-tag">iOS</span>
+        </div>
+      </div>
+      <p class="app-desc">Learn Thai with progressive grammar lessons, phrase drills, and interactive word games.</p>
+      <ul class="app-features">
         <li>Grammar lessons with progressive difficulty</li>
         <li>100 essential Thai phrases by category</li>
         <li>Word bank with shuffle and random drills</li>
         <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
-        <li>Audio pronunciation and phonetic transliterations</li>
-        <li>XP progression system</li>
+        <li>No internet required</li>
       </ul>
+      <a class="app-store-btn soon" href="#">Coming Soon</a>
     </div>
-    <div class="app-card man">
-      <img src="manlang-icon.png" alt="ManLang">
-      <h2><span>MAN</span><span>LANG</span></h2>
-      <p class="app-tagline">Learn Mandarin. No internet required.</p>
-      <ul>
+
+    <div class="app-card">
+      <div class="app-card-header">
+        <img src="manlang-icon.png" alt="ManLang">
+        <div class="app-card-header-text">
+          <div class="app-name">ManLang</div>
+          <span class="app-tag">iOS</span>
+        </div>
+      </div>
+      <p class="app-desc">Learn Mandarin Chinese through structured lessons, audio pronunciation, and interactive games.</p>
+      <ul class="app-features">
         <li>Grammar lessons with progressive difficulty</li>
         <li>100 essential Mandarin phrases by category</li>
         <li>Word bank with shuffle and random drills</li>
         <li>9 games: Sentence Builder, Word Match, Flashcards & more</li>
-        <li>Audio pronunciation and phonetic transliterations</li>
-        <li>XP progression system</li>
+        <li>No internet required</li>
       </ul>
+      <a class="app-store-btn soon" href="#">Coming Soon</a>
     </div>
-  </div>
 
-  <h2 class="category-title">Productivity Apps</h2>
-  <div class="apps">
-    <!-- Productivity app section ready for your customization -->
-    <div class="app-card productivity-card">
-      <img src="your-new-app-icon.png" alt="New Productivity App Icon">
-      <h2>[App Name]</h2>
-      <p class="app-tagline">Productivity tool. No account or data collection.</p>
-      <ul>
-        <li>[Feature 1]: Describe your key feature here.</li>
-        <li>[Feature 2]: Describe another key feature.</li>
-        <li>Offline First: Runs entirely on your device.</li>
-      </ul>
-    </div>
   </div>
 </div>
 
-<section id="support">
-  <h3>Support</h3>
-  <p>Having an issue or have a suggestion? Reach out and we'll get back to you.</p>
-  <p>Email: <a href="mailto:mnemomemory@proton.me">mnemomemory@proton.me</a></p>
-</section>
+<div class="section">
+  <p class="section-label">Productivity Apps</p>
+  <div class="app-grid">
 
-<section id="privacy">
-  <h3>Privacy Policy</h3>
+    <div class="app-card">
+      <div class="app-card-header">
+        <img src="mnemo-icon.png" alt="Mnemo">
+        <div class="app-card-header-text">
+          <div class="app-name">Mnemo</div>
+          <span class="app-tag">iOS</span>
+        </div>
+      </div>
+      <p class="app-desc">A minimal daily journal with colour-coded pages, a memory system, and a built-in timer.</p>
+      <ul class="app-features">
+        <li>Six colour-coded note pages — customise each with your own label</li>
+        <li>Daily date navigation — browse entries by day</li>
+        <li>Memory system for spaced review of important notes</li>
+        <li>Built-in timer and calendar view</li>
+        <li>Dark mode</li>
+        <li>No account, no sync, no data collection</li>
+      </ul>
+      <a class="app-store-btn soon" href="#">Coming Soon</a>
+    </div>
+
+  </div>
+</div>
+
+<div id="support" class="info-section">
+  <h2>Support</h2>
+  <p>Having an issue or a suggestion? We read every message and get back to you.</p>
+  <p>Email: <a href="mailto:mnemomemory@proton.me">mnemomemory@proton.me</a></p>
+</div>
+
+<div id="privacy" class="info-section">
+  <h2>Privacy Policy</h2>
   <p><strong>Effective date:</strong> June 24, 2026</p>
-  <p>All Avelaval Inc. applications (ThaiLang, ManLang, and [App Name]) do not collect, store, or transmit any personal data. Both apps run entirely on your device with no server communication.</p>
+  <p>All Avelaval Inc. applications — ThaiLang, ManLang, JapanLang, and Mnemo — do not collect, store, or transmit any personal data. All apps run entirely on your device with no server communication.</p>
   <p><strong>Data collection:</strong> None. Our apps do not collect any personal information, usage analytics, crash reports, or device identifiers.</p>
   <p><strong>Third-party services:</strong> None. Our apps do not integrate any third-party analytics, advertising, or tracking services.</p>
   <p><strong>Local storage:</strong> Your progress and settings are saved locally on your device and are never transmitted externally.</p>
   <p><strong>Children's privacy:</strong> Our apps do not collect any data from any user, including children.</p>
   <p><strong>Changes:</strong> If this policy changes, the updated version will be posted here.</p>
-  <p>Questions? Contact <a href="mailto:mnemomemory@proton.me">mnemomemory@proton.me</a></p>
-</section>
+  <p>Questions? <a href="mailto:mnemomemory@proton.me">mnemomemory@proton.me</a></p>
+</div>
 
-<footer>&copy; 2026 Carson Evans. All apps published under Avelaval Inc.</footer>
+<footer>&copy; 2026 Avelaval Inc. All rights reserved.</footer>
 
 </body>
 </html>
